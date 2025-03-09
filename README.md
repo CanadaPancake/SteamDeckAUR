@@ -1,21 +1,22 @@
 # SteamDeckAUR
 # Just a setup to download yay through AUR on SteamOS's locked down distro.
-
-sudo steamos-readonly disable
 # Necessary to write over file system
+sudo steamos-readonly disable
 
+# Makes sure keys are updated
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 sudo pacman-key --populate holo 
-# Makes sure keys are updated
 
+# Makes sure git and base-devel are installed
 sudo pacman -S --needed git base-devel
 sudo pacman -S git base-devel
-# Makes sure git and base-devel are installed
+
 
 # YAY installation
+
 git clone https://aur.archlinux.org/yay-bin.git
-# installed from binary due to source being finnicky.
+## installed from binary due to source being finnicky.
 cd yay-bin
 git checkout 96f90180a3cf72673b1769c23e2c74edb0293a9f
 makepkg -si
